@@ -1,36 +1,23 @@
 pipeline {
     agent any
 
+    tools {
+        nodejs 'nodejs' // Nome da ferramenta Node.js configurada no Jenkins
+    }
+
     stages {
         stage('Build') {
             steps {
-                echo 'Building...'
-                sh 'node script.js'
-        
+                sh 'node --version'
             }
         }
 
         stage('Run') {
             steps {
-                echo 'Running...'
-                sh 'node script.js'
+                sh 'node IMC.js 70 1.75'
             }
         }
 
-        stage('Test') {
-            steps {
-                echo 'Testing...'
-                sh 'npm test'
-            }
-        }
-
-        stage('Deploy') {
-            steps {
-                echo 'Deploying...'
-                sh 'cp index.html /var/www/html'
-                sh 'cp script.js /var/www/html'
-                sh 'cp styles.css /var/www/html'
-            }
-        }
     }
 }
+
