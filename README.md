@@ -1,1 +1,1 @@
-# IMC_js
+# calculadora-imc-js
