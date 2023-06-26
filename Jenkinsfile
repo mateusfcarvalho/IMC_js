@@ -13,11 +13,6 @@ pipeline {
             }
         }
 
-        stage('Run') {
-            steps {
-                sh 'node IMC.js 70 1.75'
-            }
-        }
 
     }
 }
