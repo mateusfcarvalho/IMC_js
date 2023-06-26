@@ -5,7 +5,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'cp index.html'
+                echo 'Funciona pelo amor de Deus!!!!!!'
             }
         }
 
