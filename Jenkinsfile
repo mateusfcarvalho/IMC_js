@@ -1,14 +1,12 @@
 pipeline {
-    agent any
+    agent {
+        docker {
+            image 'node:14'
+            args '-u root' // Executar com privilégios de root para instalar dependências
+        }
+    }
 
     stages {
-        stage('Install Node.js') {
-            steps {
-                sh 'curl -sL https://deb.nodesource.com/setup_14.x | bash -'
-                sh 'apt-get install -y nodejs'
-            }
-        }
-
         stage('Build') {
             steps {
                 sh 'node --version'
@@ -20,5 +18,6 @@ pipeline {
                 sh 'node IMC.js 70 1.75'
             }
         }
+
     }
 }
